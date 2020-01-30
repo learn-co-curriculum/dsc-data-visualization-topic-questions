@@ -1,11 +1,13 @@
+## Data Visualization
 
-## Data Visualization [Suggested Time: 20 minutes]
-
-In this section you will be using a FIFA dataset of soccer player statistics, plot data using whichever plotting library you are most comfortable with.
+In this checkpoint you will be using a FIFA dataset of soccer player statistics to create a visualization, then also interpreting a visualization we have created.
 
 
 ```python
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
 ```
 
 
@@ -60,7 +62,7 @@ df.head()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>158023</td>
       <td>L. Messi</td>
       <td>31</td>
@@ -84,7 +86,7 @@ df.head()
       <td>226500.0</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>20801</td>
       <td>Cristiano Ronaldo</td>
       <td>33</td>
@@ -108,7 +110,7 @@ df.head()
       <td>127100.0</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>190871</td>
       <td>Neymar Jr</td>
       <td>26</td>
@@ -132,7 +134,7 @@ df.head()
       <td>228100.0</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>193080</td>
       <td>De Gea</td>
       <td>27</td>
@@ -156,7 +158,7 @@ df.head()
       <td>138600.0</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>192985</td>
       <td>K. De Bruyne</td>
       <td>27</td>
@@ -186,13 +188,6 @@ df.head()
 
 
 
-
-```python
-import matplotlib.pyplot as plt
-import seaborn as sns
-%matplotlib inline
-```
-
 **1) Find the top 10 countries with the most players (using the 'Nationality' column). Create a bar chart showing the number of players in those 10 countries**
 
 Don't forget to add a **title** and **x axis label** to your charts.
@@ -209,8 +204,8 @@ Country D     | 89
 
 
 ```python
-# code here to get the top 10 countries with the most players
-df.Nationality.value_counts()[0:10].index
+top_10 = df.Nationality.value_counts()[0:10]
+top_10.index
 ```
 
 
@@ -224,35 +219,55 @@ df.Nationality.value_counts()[0:10].index
 
 
 ```python
-# code here to plot a bar chart
-plt.figure(figsize=(10, 6))
-plt.title("10 Countries with the Most Players")
-plt.bar(x= list(df.Nationality.value_counts()[0:10].index), height = list(df.Nationality.value_counts()[0:10].values))
-plt.xticks(rotation='vertical')
-plt.ylabel("Number of Players")
-plt.show()
+fig, ax = plt.subplots(figsize=(10, 6))
+
+ax.set_title("10 Countries with the Most Players")
+ax.set_ylabel("Number of Players")
+
+labels = list(top_10.index)
+values = list(top_10.values)
+ax.bar(labels, values)
 ```
 
 
-![png](index_files/index_7_0.png)
 
 
-**2) Below is a scatter plot for the player stats `StandingTackle` and `SlidingTackle`**
+    <BarContainer object of 10 artists>
 
-**How would you describe the relationship between these two features.**
+
+
+
+![png](index_files/index_6_1.png)
+
+
+**2) Below is code for a scatter plot for the player stats `StandingTackle` and `SlidingTackle`**
 
 
 ```python
-plt.scatter(df['StandingTackle'], df['SlidingTackle'])
-plt.title('Standing Tackle vs. Sliding Tackle')
-plt.xlabel('Standing Tackle')
-plt.ylabel('Sliding Tackle')
-plt.show()
+fig, ax = plt.subplots()
+
+ax.set_title('Standing Tackle vs. Sliding Tackle')
+ax.set_xlabel('Standing Tackle')
+ax.set_ylabel('Sliding Tackle')
+
+x = df['StandingTackle']
+y = df['SlidingTackle']
+
+ax.scatter(x, y)
 ```
 
 
-![png](index_files/index_9_0.png)
 
+
+    <matplotlib.collections.PathCollection at 0x10e6e76d8>
+
+
+
+
+![png](index_files/index_8_1.png)
+
+
+**How would you describe the relationship between these two features?**
 
 
 ```python
