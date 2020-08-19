@@ -13,15 +13,6 @@ import seaborn as sns
 %matplotlib inline
 ```
 
-
-```python
-# __SOLUTION__
-import csv
-import matplotlib.pyplot as plt
-import seaborn as sns
-%matplotlib inline
-```
-
 Next, we read data from a CSV and create `player_nationalities`, a list of dictionaries containing data about the number of FIFA soccer players from each country.  The countries are in random order.
 
 This code also prints the first five dictionaries in `player_nationalities`, out of a total of 161
@@ -39,38 +30,33 @@ for index in range(5):
     print(player_nationalities[index])
 ```
 
-
-```python
-# __SOLUTION__
-player_nationalities = []
-with open("data/player_nationalities.csv") as f:
-    for row in csv.DictReader(f):
-        row['count_of_players'] = int(row['count_of_players'])
-        player_nationalities.append(dict(row))
-for index in range(5):
-    print(player_nationalities[index])
-```
-
-    {'country': 'Afghanistan', 'count_of_players': 4}
-    {'country': 'Croatia', 'count_of_players': 113}
-    {'country': 'Benin', 'count_of_players': 15}
-    {'country': 'Azerbaijan', 'count_of_players': 5}
-    {'country': 'Montenegro', 'count_of_players': 20}
-
-
 ### 1a) Find the top 10 countries with the most players. 
 
 
 ```python
-#Your answer here
+### BEGIN SOLUTION
+
+
+from test_scripts.test_class import Test
+test = Test()
+ordered = sorted(player_nationalities, key=lambda x: x['count_of_players'], reverse=True)
+top10 = ordered[:10]
+top10
+
+test.save()
+
+
+
+### END SOLUTION
 ```
 
 
 ```python
-# __SOLUTION__
-ordered = sorted(player_nationalities, key=lambda x: x['count_of_players'], reverse=True)
-top10 = ordered[:10]
-top10
+### BEGIN HIDDEN TESTS
+
+test.run_test()
+
+### END HIDDEN TESTS
 ```
 
 ### 1b) Create a bar chart showing the number of players in those 10 countries
@@ -83,12 +69,8 @@ If you are unable to find the top 10 countries but want the chance to demonstrat
 
 
 ```python
-#Your answer here
-```
+### BEGIN SOLUTION
 
-
-```python
-# __SOLUTION__
 fig, ax = plt.subplots(figsize=(10, 6))
 
 ax.set_title("10 Countries with the Most Players")
@@ -97,11 +79,26 @@ ax.set_ylabel("Number of Players")
 labels = [row['country'] for row in top10]
 values = [row['count_of_players'] for row in top10]
 ax.bar(labels, values);
+
+test.save()
+
+
+
+### END SOLUTION
 ```
 
 
-![png](index_files/index_11_0.png)
+![png](index_files/index_8_0.png)
 
+
+
+```python
+### BEGIN HIDDEN TESTS
+
+test.run_test()
+
+### END HIDDEN TESTS
+```
 
 **2) Below is code for a scatter plot for the player stats `Standing Tackle` and `Sliding Tackle`**
 
@@ -121,26 +118,6 @@ for index in range(5):
 
 
 ```python
-# __SOLUTION__
-player_stats = []
-with open("data/player_stats.csv") as f:
-    for row in csv.DictReader(f):
-        row["standing_tackle"] = float(row["standing_tackle"])
-        row["sliding_tackle"] = float(row["sliding_tackle"])
-        player_stats.append(dict(row))
-for index in range(5):
-    print(player_stats[index])
-```
-
-    {'standing_tackle': 28.0, 'sliding_tackle': 26.0}
-    {'standing_tackle': 31.0, 'sliding_tackle': 23.0}
-    {'standing_tackle': 24.0, 'sliding_tackle': 33.0}
-    {'standing_tackle': 21.0, 'sliding_tackle': 13.0}
-    {'standing_tackle': 58.0, 'sliding_tackle': 51.0}
-
-
-
-```python
 # Run this cell without changes
 fig, ax = plt.subplots(figsize=(8, 8))
 
@@ -154,31 +131,10 @@ y = [row["sliding_tackle"] for row in player_stats]
 ax.scatter(x, y, alpha=0.2);
 ```
 
-
-```python
-# __SOLUTION__
-fig, ax = plt.subplots(figsize=(8, 8))
-ax.set_title('Standing Tackle vs. Sliding Tackle')
-ax.set_xlabel('Standing Tackle')
-ax.set_ylabel('Sliding Tackle')
-x = [row["standing_tackle"] for row in player_stats]
-y = [row["sliding_tackle"] for row in player_stats]
-ax.scatter(x, y, alpha=0.2);
-```
-
-
-![png](index_files/index_16_0.png)
-
-
 **How would you describe the relationship between these two features?**
 
+=== BEGIN MARK SCHEME ===
 
-```python
-#Your answer here
-```
-
-
-```python
-# __SOLUTION__
 '''These two features are highly correlated.'''
-```
+
+=== END MARK SCHEME ===
