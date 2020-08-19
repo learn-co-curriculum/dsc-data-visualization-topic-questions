@@ -58,15 +58,11 @@ for index in range(5):
     {'country': 'Montenegro', 'count_of_players': 20}
 
 
-**1) Find the top 10 countries with the most players. Create a bar chart showing the number of players in those 10 countries**
-
-Don't forget to add a **title** and **y axis label** to your charts.
-
-If you are unable to find the top 10 countries but want the chance to demonstrate your plotting skills use the first 10 randomly ordered countries: `top10 = player_nationalities[:10]`
+### 1a) Find the top 10 countries with the most players. 
 
 
 ```python
-# Code here to get the top 10 countries with the most players
+#Your answer here
 ```
 
 
@@ -77,25 +73,17 @@ top10 = ordered[:10]
 top10
 ```
 
+### 1b) Create a bar chart showing the number of players in those 10 countries
 
+Don't forget to add a **title** and **y axis label** to your charts.
 
+A recommended figsize is (10, 6)
 
-    [{'country': 'England', 'count_of_players': 1475},
-     {'country': 'Germany', 'count_of_players': 1151},
-     {'country': 'Spain', 'count_of_players': 974},
-     {'country': 'France', 'count_of_players': 853},
-     {'country': 'Argentina', 'count_of_players': 833},
-     {'country': 'Brazil', 'count_of_players': 788},
-     {'country': 'Italy', 'count_of_players': 579},
-     {'country': 'Colombia', 'count_of_players': 570},
-     {'country': 'Japan', 'count_of_players': 455},
-     {'country': 'Netherlands', 'count_of_players': 426}]
-
-
+If you are unable to find the top 10 countries but want the chance to demonstrate your plotting skills use the first 10 randomly ordered countries: `top10 = player_nationalities[:10]`
 
 
 ```python
-# Code here to plot a bar chart.  A recommended figsize is (10, 6)
+#Your answer here
 ```
 
 
@@ -112,7 +100,7 @@ ax.bar(labels, values);
 ```
 
 
-![png](index_files/index_10_0.png)
+![png](index_files/index_11_0.png)
 
 
 **2) Below is code for a scatter plot for the player stats `Standing Tackle` and `Sliding Tackle`**
@@ -179,18 +167,18 @@ ax.scatter(x, y, alpha=0.2);
 ```
 
 
-![png](index_files/index_15_0.png)
+![png](index_files/index_16_0.png)
 
 
 **How would you describe the relationship between these two features?**
 
 
 ```python
-# Your written answer here
+#Your answer here
 ```
 
 
 ```python
 # __SOLUTION__
-# These two features are highly correlated.
+'''These two features are highly correlated.'''
 ```
