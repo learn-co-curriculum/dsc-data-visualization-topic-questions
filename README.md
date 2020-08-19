@@ -30,20 +30,24 @@ for index in range(5):
     print(player_nationalities[index])
 ```
 
-**1) Find the top 10 countries with the most players. Create a bar chart showing the number of players in those 10 countries**
+### 1a) Find the top 10 countries with the most players. 
+
+
+```python
+#Your answer here
+```
+
+### 1b) Create a bar chart showing the number of players in those 10 countries
 
 Don't forget to add a **title** and **y axis label** to your charts.
+
+A recommended figsize is (10, 6)
 
 If you are unable to find the top 10 countries but want the chance to demonstrate your plotting skills use the first 10 randomly ordered countries: `top10 = player_nationalities[:10]`
 
 
 ```python
-# Code here to get the top 10 countries with the most players
-```
-
-
-```python
-# Code here to plot a bar chart.  A recommended figsize is (10, 6)
+#Your answer here
 ```
 
 **2) Below is code for a scatter plot for the player stats `Standing Tackle` and `Sliding Tackle`**
@@ -81,5 +85,5 @@ ax.scatter(x, y, alpha=0.2);
 
 
 ```python
-# Your written answer here
+#Your answer here
 ```
