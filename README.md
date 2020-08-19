@@ -161,7 +161,7 @@ test.save(ax.get_ylabel(), 'alt_y_label')
 ### BEGIN HIDDEN TESTS
 
 if ax == None:
-    raise AssertionError
+    raise AssertionError ("Looks like the ax object was used incorrectly?")
 
 if ax.get_xticklabels()[0].get_text() == 'England':
 
